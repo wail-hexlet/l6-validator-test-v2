@@ -7,4 +7,8 @@ export default class StringSchema {
       return this.validators.every((validator) => validator(value));
     }
 
+    hasSpaces() {
+        const validator = (value) => value.includes(' ');
+        return new StringSchema([...this.validators, validator]);
+      }
   }
